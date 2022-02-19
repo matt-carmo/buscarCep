@@ -5,23 +5,29 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Document</title>
+      <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+      
+            <div>
+                  <label>Cep:
+                        <input name="cep"  type="text" id="cep" value=""   size="" max="8"
+                               " /></label> <button class="btn">Buscar Cep</button><br />
+                        <label>Rua:
+                        <input name="rua" type="text" id="rua" size="" /></label><br />
+                        <label>Bairro:
+                        <input name="bairro" type="text" id="bairro" size="" /></label><br />
+                        <label>Cidade:
+                        <input name="cidade" type="text" id="cidade" size="" /></label><br />
+                        <label>Estado:
+                        <input name="uf" type="text" id="uf" size="" /></label><br />
+                        <label>IBGE:
+                        <input name="ibge" type="text" id="ibge" size="" /></label><br />
+                      </form>
+            </div>
+      
 
-            <label>Cep:
-            <input name="cep"  type="text" id="cep" value=""   size="10" maxlength="9"
-                   " /></label> <button class="btn">Buscar Cep</button><br />
-            <label>Rua:
-            <input name="rua" type="text" id="rua" size="60" /></label><br />
-            <label>Bairro:
-            <input name="bairro" type="text" id="bairro" size="40" /></label><br />
-            <label>Cidade:
-            <input name="cidade" type="text" id="cidade" size="40" /></label><br />
-            <label>Estado:
-            <input name="uf" type="text" id="uf" size="2" /></label><br />
-            <label>IBGE:
-            <input name="ibge" type="text" id="ibge" size="8" /></label><br />
-
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="./js/script.js"></script>
 </body>
 </html>

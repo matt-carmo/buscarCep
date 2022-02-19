@@ -4,57 +4,53 @@ const bairro = document.querySelector("#bairro");
 const cidade = document.querySelector("#cidade");
 const uf = document.querySelector("#uf");
 const ibge = document.querySelector("#ibge");
-
 const btn = document.querySelector(".btn");
 
-const getCep = async () => {
-      const cep = await fetch(url);
-      const userData = await cep.json();
-      return userData;
-  };
-
-
-const completAdress = async () => {
-    adress = await getCep();
-    rua.value = adress.logradouro;
-    bairro.value = adress.bairro;
-    cidade.value = adress.localidade;
-    uf.value = adress.uf;
-    ibge.value = adress.ibge;
-};
-
-
-
-
-btn.addEventListener("click", () => {
-     const cepInt = parseInt(cep.value)
       
+btn.addEventListener('click' , () => {
+      const cepLength = cep.value.length     
+      if (cepLength == 8 && /^[0-9]+$/.test(cep.value)){
+            getCepsForHtml()
+      } else limparCep(); console.log('oi')
+      
+})
+/*
+const getPosts = () => fetch(url)
 
+getPosts().then(response => {
+      console.log(response)
+}) */
 
-      if (isNaN(cepInt)){
-            console.log(cepInt + 'falso')
-      }else {
-            if(!cep.value.includes(cepInt)){
-                  return console.error('');
-                  //Criar função que retorne um erro
-                  
-            }else {cepInput()}
-                
+limparCep = () => {
+      rua.value = ''
+      bairro.value = ''
+      cidade.value = ''
+      uf.value = ''
+      ibge.value =''
+}
+
+const getPosts = async() => {          
+      try{             
+            const cepValue = cep.value
+            url = `https://viacep.com.br/ws/${cepValue}/json/`
+            const response  = await  axios.get(url)
+            return response.data            
+      }catch(error){
+            console.log(alert('Conexão Recusada pelo Servidor'), error)
       }
-});
+}
 
-
-const cepInput = () => {
-    cepNumber = cep.value;
-
-    
-    url = `https://viacep.com.br/ws/${cepNumber}/json/`;
-    cepNumber.includes(cepNumber)
-
-    console.log(cepNumber)
-    
-    andress = completAdress();
-};
-
-
+const getCepsForHtml = () =>  getPosts().then( value => {
+      console.log(value.erro)      
+      if(value.erro == true) {
+            console.log('Cep não existe(Ou não encontrado)')
+      }else{
+            console.log(value.erro)
+            rua.value = value.logradouro      
+            bairro.value = value.bairro
+            cidade.value = value.localidade
+            uf.value = value.uf
+            ibge.value = value.ibge
+      }  
+})
 
