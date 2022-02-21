@@ -66,7 +66,7 @@ const getPosts = async () => {
 
 const getCepsForHtml = () =>
     getPosts().then((value) => {
-        console.log(value.erro);
+       
         if (value.erro == true) {
             swal.fire({
                 icon: "question",
@@ -76,7 +76,11 @@ const getCepsForHtml = () =>
             });
             limparCep();
         } else {
-            console.log(value.erro);
+           
+
+                
+
+
             rua.value = value.logradouro;
             bairro.value = value.bairro;
             cidade.value = value.localidade;
