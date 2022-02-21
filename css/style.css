@@ -98,7 +98,7 @@ label input:disabled{
 
 @media (max-width: 700px) {
       body {
-            padding: 0;
+            padding: 5px;
       }
       main {
             border-top: 50px solid var(--border-left);
