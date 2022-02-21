@@ -96,3 +96,14 @@ label input {
 label input:disabled{
       background:var(--background-inputs);
 }
+
+@media (max-width: 700px) {
+      body {
+            padding: 0;
+      }
+      main {
+            border-top: 50px solid var(--border-left);
+            border-left: none;
+            border-right: none;
+      }
+}
